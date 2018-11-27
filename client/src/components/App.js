@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Router, Route, Switch, Redirect} from 'react-router-dom'
+import 'typeface-roboto';
 
 /** COMPONENTS */
 import _helper from '../helpers'

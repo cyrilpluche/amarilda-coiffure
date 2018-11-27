@@ -19,6 +19,8 @@ export function Admin (state = initialState, {type, payload}) {
         case labels.LOAD:
             return { ...state, isLoading: state.isLoading + 1 };
 
+        case labels.SWITCH_TABLE:
+            return { ...state, table: payload };
 
         case labels.LOAD_DATA_SUCCESS:
             return {

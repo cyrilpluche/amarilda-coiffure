@@ -7,18 +7,24 @@ import { withStyles } from '@material-ui/core/styles';
 /** COMPONENTS */
 import _action from '../../actions'
 //import _business from './Business'
-import DataBase from './dataTable/DataTable'
+import DataTable from './dataTable/DataTable'
 import DataDialog from './dataTable/DataDialog'
+import Select from '../ui/select/Select'
 
 /** STYLES */
 //import { style } from './Style'
 import { globalStyle } from '../../style'
+import Grid from "@material-ui/core/Grid/Grid";
 
 class AdminDashboard extends React.Component {
 
     constructor (props) {
         super(props)
         this.componentDidMount = this.componentDidMount.bind(this)
+
+        this.state = {
+            tableSelected: 'Member'
+        }
     }
 
     componentDidMount () {
@@ -26,9 +32,27 @@ class AdminDashboard extends React.Component {
         onLoadData(table)
     }
 
+    handleChangeSelect (table) {
+        const { onLoadData } = this.props
+        this.setState({ tableSelected: table})
+        onLoadData(table)
+    }
+
     render() {
+
+        const dataTables = [
+            'Member',
+            'Prestation'
+        ]
+
         return (
-            <div>
+            <Grid container alignItems='center'>
+                <Select
+                    title='Table'
+                    tables={dataTables}
+                    tableSelected={this.state.tableSelected}
+                    onChange={this.handleChangeSelect.bind(this)}
+                />
                 <DataDialog
                     title={'Create ' + this.props.table}
                     element={this.props.element}
@@ -37,15 +61,17 @@ class AdminDashboard extends React.Component {
                     table={this.props.table}
                     icon='create'
                 />
-                <DataBase
-                    labels={this.props.labels}
-                    data={this.props.data}
-                    isLoading={this.props.isLoading}
-                    deleteSelectedData={this.props.onDeleteSelectedData}
-                    updateElement={this.props.onUpdateElement}
-                    table={this.props.table}
-                />
-            </div>
+                <Grid container>
+                    <DataTable
+                        labels={this.props.labels}
+                        data={this.props.data}
+                        isLoading={this.props.isLoading}
+                        deleteSelectedData={this.props.onDeleteSelectedData}
+                        updateElement={this.props.onUpdateElement}
+                        table={this.props.table}
+                    />
+                </Grid>
+            </Grid>
         )
     }
 }

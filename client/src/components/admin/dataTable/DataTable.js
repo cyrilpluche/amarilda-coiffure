@@ -264,7 +264,7 @@ class EnhancedTable extends React.Component {
     /** Custom methods */
     handleDeleteSelectedData () {
         this.setState({ selected: [] })
-        this.props.deleteSelectedData('Member', this.state.selected)
+        this.props.deleteSelectedData(this.props.table, this.state.selected)
     }
 
     render() {

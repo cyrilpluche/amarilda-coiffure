@@ -29,7 +29,10 @@ export default class DataDialog extends React.Component {
 
     handleSubmit = () => {
         this.props.submit(this.props.table, this.state.element, this.props.index)
-        this.setState({ open: false });
+        this.setState({
+            open: false,
+            element: this.state.element
+        });
     };
 
     handleChange = name => event => {
@@ -44,7 +47,7 @@ export default class DataDialog extends React.Component {
         return (
             <div>
                 {this.props.icon === 'create' ? (
-                    <Button variant="contained" color='primary'  style={ style.button } onClick={this.handleClickOpen}>
+                    <Button variant="outlined" color='primary'  style={ style.button } onClick={this.handleClickOpen}>
                         Create <AddBoxIcon style={ style.rightIcon }/>
                     </Button>
                 ) : (
@@ -60,17 +63,17 @@ export default class DataDialog extends React.Component {
                 >
                     <DialogTitle id="form-dialog-title">{this.props.title}</DialogTitle>
                     <DialogContent>
-                        {Object.values(this.state.element).map((value, index) =>
-                            Object.keys(this.state.element)[index] !== '_id' && Object.keys(this.state.element)[index] !== '__v' ? (
+                        {Object.values(this.props.element).map((value, index) =>
+                            Object.keys(this.props.element)[index] !== '_id' && Object.keys(this.props.element)[index] !== '__v' ? (
                                 <TextField
                                     key={index}
                                     autoFocus
                                     margin="dense"
-                                    id={Object.keys(this.state.element)[index]}
-                                    label={Object.keys(this.state.element)[index]}
+                                    id={Object.keys(this.props.element)[index]}
+                                    label={Object.keys(this.props.element)[index]}
                                     type="text"
-                                    value={value}
-                                    onChange={this.handleChange(Object.keys(this.state.element)[index])}
+                                    value={this.state.element[Object.keys(this.props.element)[index]]}
+                                    onChange={this.handleChange(Object.keys(this.props.element)[index])}
                                     fullWidth
                                 />
                             ) : (
