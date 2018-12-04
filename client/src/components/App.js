@@ -6,6 +6,7 @@ import 'typeface-roboto';
 import _helper from '../helpers'
 import AdminDashboard from './admin/AdminDashboard'
 import Home from './home/Home'
+import Schedule from './schedule/Schedule'
 
 class App extends Component {
 
@@ -15,6 +16,7 @@ class App extends Component {
                 <Switch>
                     <Route path="/admin-dashboard" component={AdminDashboard}/>
                     <Route path="/home" component={Home}/>
+                    <Route path="/schedule" component={Schedule}/>
                     <Route path='*' render={() => <Redirect to="/home" />}/>
                 </Switch>
             </Router>

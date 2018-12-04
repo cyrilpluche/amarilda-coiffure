@@ -3,7 +3,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-//import _helper from '../../helpers'
+import _helper from '../../helpers'
 //import _action from '../../actions'
 
 /** STYLES */
@@ -16,6 +16,10 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography/Typography";
 
 class Home extends React.Component {
+
+    onNavigateTo (link) {
+        _helper.History.push(link)
+    }
 
     render() {
         const { classes } = this.props;
@@ -31,11 +35,24 @@ class Home extends React.Component {
                             </Typography>
                         </Grid>
                     </Grid>
-                    <Button variant='outlined' style={ style.mainButton }>
-                        <Typography variant="overline" style={{ fontSize: '1.1em'}}>
-                            {'Catalogue'.toUpperCase()}
-                        </Typography>
-                    </Button>
+                    <Grid container justify='center' alignItems='center'>
+                        <Grid item xs={2}>
+                            <Button variant='outlined' style={ style.mainButton } fullWidth>
+                                <Typography variant="overline" style={{ fontSize: '1.1em'}}>
+                                    {'Catalogue'.toUpperCase()}
+                                </Typography>
+                            </Button>
+                        </Grid>
+                    </Grid>
+                    <Grid container justify='center' alignItems='center'>
+                        <Grid item xs={2}>
+                            <Button variant='outlined' style={ style.mainButton } fullWidth onClick={() => this.onNavigateTo('schedule')}>
+                                <Typography variant="overline" style={{ fontSize: '1.1em'}}>
+                                    {'Horaires'.toUpperCase()}
+                                </Typography>
+                            </Button>
+                        </Grid>
+                    </Grid>
                 </Grid>
             </div>
         )
