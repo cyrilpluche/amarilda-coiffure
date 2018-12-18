@@ -9,6 +9,11 @@ const Member = {
         member_lastname: '',
         member_age: ''
     },
+    rules:  [
+        { label: 'member_firstname', type: 'text' },
+        { label: 'member_lastname', type: 'text' },
+        { label: 'member_age', type: 'number' },
+    ],
 
     create (member) {
         return Api.post(url + 'create', member).then(res => res.data)

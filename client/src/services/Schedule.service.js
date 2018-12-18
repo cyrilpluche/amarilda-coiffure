@@ -8,6 +8,10 @@ const Schedule = {
         shift: [],
         date: '',
     },
+    rules:  [
+        'array',
+        'date'
+    ],
 
     create (schedule) {
         return Api.post(url + 'create', schedule).then(res => res.data)

@@ -7,5 +7,6 @@ const EndPoint = require('./endpoint');
 module.exports = {
     EndPoint,
     Member,
-    Schedule
+    Schedule,
+    Prestation
 };

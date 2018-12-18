@@ -20,18 +20,24 @@ export default class DataDialog extends React.Component {
     }
 
     handleClickOpen = () => {
-        this.setState({ open: true });
+        this.setState({
+            open: true,
+            element: this.props.element
+        });
     };
 
     handleClose = () => {
-        this.setState({ open: false });
+        this.setState({
+            open: false,
+            element: this.props.element
+        });
     };
 
     handleSubmit = () => {
         this.props.submit(this.props.table, this.state.element, this.props.index)
         this.setState({
             open: false,
-            element: this.state.element
+            element: this.props.element
         });
     };
 
@@ -63,22 +69,18 @@ export default class DataDialog extends React.Component {
                 >
                     <DialogTitle id="form-dialog-title">{this.props.title}</DialogTitle>
                     <DialogContent>
-                        {Object.values(this.props.element).map((value, index) =>
-                            Object.keys(this.props.element)[index] !== '_id' && Object.keys(this.props.element)[index] !== '__v' ? (
+                        {Object.values(this.props.elementRules).map((value, index) =>
                                 <TextField
-                                    key={index}
+                                    key={index + 1}
                                     autoFocus
                                     margin="dense"
-                                    id={Object.keys(this.props.element)[index]}
-                                    label={Object.keys(this.props.element)[index]}
+                                    id={value.label}
+                                    label={value.label}
                                     type="text"
-                                    value={this.state.element[Object.keys(this.props.element)[index]]}
-                                    onChange={this.handleChange(Object.keys(this.props.element)[index])}
+                                    value={this.state.element[value.label] ? this.state.element[value.label] : ""}
+                                    onChange={this.handleChange(value.label)}
                                     fullWidth
                                 />
-                            ) : (
-                                null
-                            )
                         )}
                     </DialogContent>
                     <DialogActions>

@@ -10,7 +10,10 @@ export const globalColors = {
     third: '#ee90e4',
     palette1: '#6d1b7b',
     palette2: '#9c27b0',
-    palette3: '#af52bf'
+    palette3: '#af52bf',
+
+    bgColor: '#f8f8f8',
+
 }
 
 

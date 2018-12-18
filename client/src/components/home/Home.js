@@ -25,7 +25,7 @@ class Home extends React.Component {
         const { classes } = this.props;
 
         return (
-            <div style={ style.main }>
+            <div id={'homeCover'} style={ style.main }>
                 <div style={ style.colorOverlay }/>
                 <Grid container justify='center' alignItems='center' style={ style.content }>
                     <Grid item xs={12}>
@@ -35,15 +35,18 @@ class Home extends React.Component {
                             </Typography>
                         </Grid>
                     </Grid>
+                    {/* CATALOGUE BUTTON */}
                     <Grid container justify='center' alignItems='center'>
                         <Grid item xs={2}>
-                            <Button variant='outlined' style={ style.mainButton } fullWidth>
+                            <Button href='#prestationList' variant='outlined' style={ style.mainButton } fullWidth>
                                 <Typography variant="overline" style={{ fontSize: '1.1em'}}>
                                     {'Catalogue'.toUpperCase()}
                                 </Typography>
                             </Button>
                         </Grid>
                     </Grid>
+
+                    {/* SCHEDULE BUTTON */}
                     <Grid container justify='center' alignItems='center'>
                         <Grid item xs={2}>
                             <Button variant='outlined' style={ style.mainButton } fullWidth onClick={() => this.onNavigateTo('schedule')}>

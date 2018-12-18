@@ -58,6 +58,7 @@ class AdminDashboard extends React.Component {
                 <DataDialog
                     title={'Create ' + this.props.table}
                     element={this.props.element}
+                    elementRules={this.props.elementRules}
                     index={-1}
                     submit={this.props.onCreateElement}
                     table={this.props.table}
@@ -68,6 +69,7 @@ class AdminDashboard extends React.Component {
                         <DataTable
                             labels={this.props.labels}
                             data={this.props.data}
+                            elementRules={this.props.elementRules}
                             isLoading={this.props.isLoading}
                             deleteSelectedData={this.props.onDeleteSelectedData}
                             updateElement={this.props.onUpdateElement}
@@ -92,6 +94,7 @@ const mapStateToProps = (state) => ({
     labels: state.Admin.labels,
     data: state.Admin.data,
     element: state.Admin.element,
+    elementRules: state.Admin.elementRules,
     table: state.Admin.table
 })
 

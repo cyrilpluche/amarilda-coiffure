@@ -10,6 +10,12 @@ const Prestation = {
         prestation_price: '',
         prestation_reduction: '',
     },
+    rules:  [
+        { label: 'prestation_title', type: 'text' },
+        { label: 'prestation_description', type: 'text' },
+        { label: 'prestation_price', type: 'number' },
+        { label: 'prestation_reduction', type: 'number' }
+    ],
 
     create (prestation) {
         return Api.post(url + 'create', prestation).then(res => res.data)
