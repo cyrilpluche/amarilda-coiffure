@@ -9,8 +9,13 @@ import _helper from '../../helpers'
 /** STYLES */
 import { style } from './Style'
 import { globalStyle } from '../../style'
+
+/** COMPONENTS */
+import Navbar from '../navbar/Navbar'
 import Home from './Home'
 import PrestationList from '../prestation/PrestationList'
+import Contact from '../contact/Contact'
+import Footer from '../footer/Footer'
 
 /** MATERIAL UI */
 import Grid from "@material-ui/core/Grid/Grid";
@@ -26,6 +31,8 @@ class HomeContainer extends React.Component {
             <div style={ style.homeContainer } id={'homeContainer'}>
                 <Home/>
                 <PrestationList/>
+                <Contact/>
+                <Footer/>
             </div>
         )
     }

@@ -25,6 +25,12 @@ export const style = {
     },
     mainText: {
         color: 'white',
+        letterSpacing: '10px',
+        zIndex: 1,
+    },
+    secondaryText: {
+        color: 'white',
+        letterSpacing: '7px',
         zIndex: 1,
     },
     mainButton: {
@@ -34,7 +40,8 @@ export const style = {
         color: '#323232',
         borderRadius: 0,
         zIndex: 1,
-    },
+        transition: 'transform .2s',
+    }
 };
 
 

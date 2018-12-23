@@ -20,6 +20,7 @@ import Typography from "@material-ui/core/es/Typography/Typography";
 import ClearLogo from "@material-ui/icons/Clear"
 import DoneLogo from "@material-ui/icons/Done"
 import _action from "../../actions";
+import Divider from "@material-ui/core/es/Divider/Divider";
 
 class PrestationList extends React.Component {
 
@@ -41,20 +42,46 @@ class PrestationList extends React.Component {
         const { classes } = this.props;
 
         return (
-            <Grid id="prestationList" container justify='center' style={ style.prestationListContainer }>
-                <Grid item xs={12}>
-                    <Grid container justify='center' style={ style.prestationlistTitle }>
-                        <Typography variant='h2'>
-                            PRESTATIONS
-                        </Typography>
+            <div style={ style.prestationListContainer }>
+                <Grid id="prestationList" container justify='center' alignItems='flex-start'>
+                    <Grid item xs={12} style={ style.prestationlistHeader }>
+                        <Grid container justify='center' >
+                            <Typography variant='h2' style={ style.prestationlistTitle }>
+                                CATALOGUE
+                            </Typography>
+                            <Grid container justify='center'>
+                                <Grid item xs={3} className={ classes.divider1 }>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+
+                    <Grid item xs={6}>
+                        <Grid container justify='center'>
+                            <Typography variant='overline' style={{fontSize: 30}}>
+                                FEMME
+                            </Typography>
+                        </Grid>
+                        {this.props.prestations.map((prestation, index)=>
+                            <Grid item xs={12} key={index} style={style.prestationContainer}>
+                                <PrestationPreview prestation={prestation} />
+                            </Grid>
+                        )}
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Grid container justify='center'>
+                            <Typography variant='overline' style={{fontSize: 30}}>
+                                HOMME
+                            </Typography>
+                        </Grid>
+                        {this.props.prestations.map((prestation, index)=>
+                            <Grid item xs={12} key={index} style={style.prestationContainer}>
+                                <PrestationPreview prestation={prestation} />
+                            </Grid>
+                        )}
                     </Grid>
                 </Grid>
-                {this.props.prestations.map((prestation, index)=>
-                    <Grid item xs={2} key={index} style={style.prestationContainer}>
-                        <PrestationPreview prestation={prestation} />
-                    </Grid>
-                )}
-            </Grid>
+            </div>
         )
     }
 }

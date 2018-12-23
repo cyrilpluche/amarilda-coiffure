@@ -2,22 +2,31 @@ import { globalColors } from '../../style'
 
 export const style = {
     prestationListContainer: {
-        backgroundColor: '#ffe4f8',
-        paddingBottom: '60px'
+        backgroundColor: '#fff0fb',
+        paddingBottom: '60px',
+        minHeight: '100%',
     },
     prestationContainer: {
         padding: 3,
     },
     prestationPreview: {
         backgroundColor: '#302c2e',
-        color: '#FFF'
+        color: '#FFF',
+        paddingLeft: 10,
+        paddingRight: 10,
     },
     prestationPreviewText: {
-        color: '#FFF'
+        //color: '#FFF',
+    },
+    prestationlistHeader: {
+        marginTop: '30px',
+        marginBottom: '40px',
     },
     prestationlistTitle: {
-        marginTop: '30px',
-        marginBottom: '30px',
-    }
-
+        letterSpacing: '10px',
+        marginBottom: '40px',
+    },
+    prestationPreviewPrice: {
+        color: globalColors.palette3
+    },
 };

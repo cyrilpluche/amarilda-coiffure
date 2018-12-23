@@ -1,6 +1,17 @@
 export const globalStyle = theme => ({
     main: {
         backgroundColor: 'red'
+    },
+    divider1: {
+        backgroundColor: '#cecece',
+        height: '2px',
+        width: '100%',
+    },
+    hoverZoom: {
+        zIndex: 1,
+        '&:hover': {
+            transform: 'scale(1.1)',
+        }
     }
 })
 

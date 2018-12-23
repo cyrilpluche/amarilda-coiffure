@@ -24,6 +24,10 @@ import CardMedia from "@material-ui/core/es/CardMedia/CardMedia";
 import CardContent from "@material-ui/core/es/CardContent/CardContent";
 import CardActions from "@material-ui/core/es/CardActions/CardActions";
 import Button from "@material-ui/core/es/Button/Button";
+import ExpansionPanel from "@material-ui/core/es/ExpansionPanel/ExpansionPanel";
+import ExpansionPanelSummary from "@material-ui/core/es/ExpansionPanelSummary/ExpansionPanelSummary";
+import ExpansionPanelDetails from "@material-ui/core/es/ExpansionPanelDetails/ExpansionPanelDetails";
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 class PrestationList extends React.Component {
 
@@ -35,23 +39,23 @@ class PrestationList extends React.Component {
         const { classes, prestation } = this.props;
 
         return (
-            <Card style={ style.prestationPreview }>
-                <CardActionArea>
-                    <CardMedia
-                        style={ style.media }
-                        image="/static/images/cards/contemplative-reptile.jpg"
-                        title="Contemplative Reptile"
-                    />
-                    <CardContent>
-                        <Typography gutterBottom variant="overline" component="h2" style={ style.prestationPreviewText }>
+            <ExpansionPanel>
+                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                    <Grid container justify='space-between' alignItems='center'>
+                        <Typography variant="overline" component="h2" style={ style.prestationPreviewText }>
                             {prestation.prestation_title}
                         </Typography>
-                        <Typography component="h2" style={ style.prestationPreviewText }>
-                            {prestation.prestation_description}
+                        <Typography component="h2" style={ style.prestationPreviewPrice }>
+                            {prestation.prestation_price.toFixed(2) + ' €'}
                         </Typography>
-                    </CardContent>
-                </CardActionArea>
-            </Card>
+                    </Grid>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails>
+                    <Typography variant="overline" component="h2" style={ style.prestationPreviewText }>
+                        {prestation.prestation_description}
+                    </Typography>
+                </ExpansionPanelDetails>
+            </ExpansionPanel>
         )
     }
 }
