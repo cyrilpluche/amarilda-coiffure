@@ -9,28 +9,21 @@ import { style } from './Style'
 import { globalStyle } from '../../style'
 
 /** MATERIAL UI */
-import Navbar from "../navbar/Navbar";
-import Cover from "../cover/Cover";
-import Catalogue from "../catalogue/Catalogue"
-import Contact from "../contact/Contact"
 
-class Home extends React.Component {
+class Contact extends React.Component {
 
     render() {
         const { classes } = this.props;
 
         return (
-            <div style={ style.mainHome }>
-                <Navbar/>
-                <Cover/>
-                <Catalogue/>
-                <Contact/>
+            <div style={ style.catalogueMain }>
+                ui
             </div>
         )
     }
 }
 
-Home.propTypes = {
+Contact.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
@@ -40,4 +33,4 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(withStyles(globalStyle)(Home));
+export default connect(mapStateToProps,mapDispatchToProps)(withStyles(globalStyle)(Contact));
