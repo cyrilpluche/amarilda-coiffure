@@ -41,6 +41,8 @@ class AdminDashboard extends React.Component {
 
     render() {
 
+        const { classes } = this.props
+
         const dataTables = [
             'Member',
             'Prestation',
@@ -48,13 +50,13 @@ class AdminDashboard extends React.Component {
         ]
 
         return (
-            <Grid container alignItems='center'>
-                <Select
+            <Grid container alignItems='center' className={ classes.navMarginTop }>
+                {/*<Select
                     title='Table'
                     tables={dataTables}
-                    tableSelected={this.state.tableSelected}
+                    tableSelected={this.props.tableSelected}
                     onChange={this.handleChangeSelect.bind(this)}
-                />
+                />*/}
                 <DataDialog
                     title={'Create ' + this.props.table}
                     element={this.props.element}

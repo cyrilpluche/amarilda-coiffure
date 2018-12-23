@@ -1,3 +1,5 @@
+import bg from '../../public/images/home_bg.jpg'
+
 export const style = {
     homeContainer: {
         height: '100%',

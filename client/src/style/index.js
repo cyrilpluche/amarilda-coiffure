@@ -12,6 +12,9 @@ export const globalStyle = theme => ({
         '&:hover': {
             transform: 'scale(1.1)',
         }
+    },
+    navMarginTop: {
+        paddingTop: '64px',
     }
 })
 

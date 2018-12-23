@@ -51,7 +51,7 @@ class Contact extends React.Component {
                     <Grid item xs={6}>
                         <Grid container alignItems='center' style={{ height: '100%', paddingRight: '5%' }}>
                             <Typography variant="overline" component="h2" style={ style.prestationPreviewText }>
-                                Vous pouvez me contacter pour prendre rendez-vous, ainsi que pour tout renseignement supplémentaires
+                                Vous pouvez me contacter pour prendre rendez-vous, ainsi que pour tout renseignement supplémentaire
                             </Typography>
                             <Grid item xs={12}>
                                 {informations.map((information, index) =>
