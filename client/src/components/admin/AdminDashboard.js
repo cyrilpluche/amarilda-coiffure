@@ -9,6 +9,7 @@ import _action from '../../actions'
 //import _business from './Business'
 import DataTable from './dataTable/DataTable'
 import DataDialog from './dataTable/DataDialog'
+import DataCalendar from './dataCalendar/DataCalendar'
 import Select from '../ui/select/Select'
 
 /** STYLES */
@@ -42,7 +43,8 @@ class AdminDashboard extends React.Component {
 
         const dataTables = [
             'Member',
-            'Prestation'
+            'Prestation',
+            'Schedule'
         ]
 
         return (
@@ -56,21 +58,28 @@ class AdminDashboard extends React.Component {
                 <DataDialog
                     title={'Create ' + this.props.table}
                     element={this.props.element}
+                    elementRules={this.props.elementRules}
                     index={-1}
                     submit={this.props.onCreateElement}
                     table={this.props.table}
                     icon='create'
                 />
-                <Grid container>
-                    <DataTable
-                        labels={this.props.labels}
-                        data={this.props.data}
-                        isLoading={this.props.isLoading}
-                        deleteSelectedData={this.props.onDeleteSelectedData}
-                        updateElement={this.props.onUpdateElement}
-                        table={this.props.table}
-                    />
-                </Grid>
+                {this.state.tableSelected !== 'Schedule' ? (
+                    <Grid container>
+                        <DataTable
+                            labels={this.props.labels}
+                            data={this.props.data}
+                            elementRules={this.props.elementRules}
+                            isLoading={this.props.isLoading}
+                            deleteSelectedData={this.props.onDeleteSelectedData}
+                            updateElement={this.props.onUpdateElement}
+                            table={this.props.table}
+                        />
+                    </Grid>
+                ) : (
+                    <DataCalendar/>
+                )}
+
             </Grid>
         )
     }
@@ -85,6 +94,7 @@ const mapStateToProps = (state) => ({
     labels: state.Admin.labels,
     data: state.Admin.data,
     element: state.Admin.element,
+    elementRules: state.Admin.elementRules,
     table: state.Admin.table
 })
 

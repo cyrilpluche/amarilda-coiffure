@@ -3,6 +3,7 @@ const Prestation = require('../models').Prestation
 
 module.exports = {
     create (req, res, next) {
+        console.log(req.body)
         Prestation.create(req.body, (err, prestation) => {
             if (err) {
                 res.status(400).send(err.errors);

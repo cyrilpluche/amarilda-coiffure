@@ -5,7 +5,8 @@ import 'typeface-roboto';
 /** COMPONENTS */
 import _helper from '../helpers'
 import AdminDashboard from './admin/AdminDashboard'
-import Home from './home/Home'
+import HomeContainer from './home/HomeContainer'
+import Schedule from './schedule/Schedule'
 
 class App extends Component {
 
@@ -14,7 +15,8 @@ class App extends Component {
             <Router history={_helper.History}>
                 <Switch>
                     <Route path="/admin-dashboard" component={AdminDashboard}/>
-                    <Route path="/home" component={Home}/>
+                    <Route path="/home" component={HomeContainer}/>
+                    <Route path="/schedule" component={Schedule}/>
                     <Route path='*' render={() => <Redirect to="/home" />}/>
                 </Switch>
             </Router>

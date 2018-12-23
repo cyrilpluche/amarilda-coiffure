@@ -84,7 +84,8 @@ function loadMember (dispatch) {
                 payload: {
                     data: members,
                     labels: Object.keys(_service.Member.model),
-                    element: _service.Member.model
+                    element: _service.Member.model,
+                    elementRules: _service.Member.rules
                 }
             })
         })
@@ -159,7 +160,8 @@ function loadPrestation (dispatch) {
                 payload: {
                     data: prestations,
                     labels: Object.keys(_service.Prestation.model),
-                    element: _service.Prestation.model
+                    element: _service.Prestation.model,
+                    elementRules: _service.Prestation.rules
                 }
             })
         })

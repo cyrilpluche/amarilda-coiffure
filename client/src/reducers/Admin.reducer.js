@@ -11,7 +11,13 @@ const initialState = {
         member_firstname: '',
         member_lastname: '',
         member_age: ''
-    }
+    },
+    elementRules: [
+        'text',
+        'text',
+        'number'
+    ]
+
 };
 
 export function Admin (state = initialState, {type, payload}) {
@@ -28,7 +34,8 @@ export function Admin (state = initialState, {type, payload}) {
                 isLoading: state.isLoading - 1,
                 data: payload.data,
                 labels: payload.labels,
-                element: payload.element
+                element: payload.element,
+                elementRules: payload.elementRules
             };
 
         case labels.LOAD_DATA_ERROR:

@@ -1,9 +1,19 @@
+import { globalColors } from '../../style'
+
 export const style = {
-    catalogueMain: {
-        height: '30%',
-        width: '100%',
-        backgroundColor: 'black',
+    contactContainer: {
+        minHeight: '100%',
+    },
+    informationContainer: {
+        paddingTop: '30px',
+    },
+    contactTitle: {
+        letterSpacing: '10px',
+        fontSize: '25px',
+        marginBottom: '60px',
+    },
+    img1: {
+        width: '80%',
+        height: '100%',
     }
 };
-
-

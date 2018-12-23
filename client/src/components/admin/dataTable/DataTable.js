@@ -199,7 +199,6 @@ class EnhancedTable extends React.Component {
 
     constructor (props) {
         super(props)
-
         this.handleDeleteSelectedData = this.handleDeleteSelectedData.bind(this)
     }
 
@@ -313,17 +312,14 @@ class EnhancedTable extends React.Component {
                                             <TableCell padding="checkbox" onClick={event => this.handleClick(event, n._id)}>
                                                 <Checkbox checked={isSelected} />
                                             </TableCell>
-                                            {Object.values(n).map((value, index) =>
-                                               Object.keys(n)[index] !== '_id' && Object.keys(n)[index] !== '__v' ? (
-                                                   <TableCell key={index}>{value}</TableCell>
-                                               ) : (
-                                                   null
-                                               )
+                                            {this.props.elementRules.map((value, index) =>
+                                                <TableCell key={index + 1}>{Object.values(n)[index + 1]}</TableCell>
                                             )}
                                             <TableCell padding="checkbox">
                                                 <DataDialog
                                                     title={'Update ' + this.props.table}
                                                     element={n}
+                                                    elementRules={this.props.elementRules}
                                                     index={index}
                                                     submit={this.props.updateElement}
                                                     table={this.props.table}
