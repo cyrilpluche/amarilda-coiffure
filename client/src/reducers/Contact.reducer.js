@@ -1,26 +1,26 @@
 import _action from "../actions";
 
-const labels = _action.prestationAction.labels
+const labels = _action.contactAction.labels
 
 const initialState = {
     isLoading: 0,
-    prestations: []
+    contact: {}
 
 };
 
-export function Prestation (state = initialState, {type, payload}) {
+export function Contact (state = initialState, {type, payload}) {
     switch (type) {
-        case labels.LOAD_PRESTATION:
+        case labels.LOAD_CONTACT:
             return { ...state, isLoading: state.isLoading + 1 };
 
-        case labels.LOAD_PRESTATION_SUCCESS:
+        case labels.LOAD_CONTACT_SUCCESS:
             return {
                 ...state,
                 isLoading: state.isLoading - 1,
-                prestations: payload.data,
+                contact: payload.data,
             };
 
-        case labels.LOAD_PRESTATION_ERROR:
+        case labels.LOAD_CONTACT_ERROR:
             return {
                 ...state,
                 isLoading: state.isLoading - 1,

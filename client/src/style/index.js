@@ -1,10 +1,15 @@
+import { createMuiTheme } from "@material-ui/core"
+
+const defaultTheme = createMuiTheme({})
+const { breakpoints, typography: { pxToRem } } = defaultTheme
+
 export const globalStyle = theme => ({
     main: {
         backgroundColor: 'red'
     },
     divider1: {
         backgroundColor: '#cecece',
-        height: '2px',
+        height: '1px',
         width: '100%',
     },
     hoverZoom: {
@@ -15,6 +20,21 @@ export const globalStyle = theme => ({
     },
     navMarginTop: {
         paddingTop: '64px',
+    },
+    h2: {
+        [breakpoints.down("sm")]: {
+            fontSize: "30px !important"
+        }
+    },
+    h3: {
+        [breakpoints.down("sm")]: {
+            fontSize: "20px !important"
+        }
+    },
+    navbarIconHover: {
+        '&:hover': {
+            opacity: '1 !important'
+        }
     }
 })
 

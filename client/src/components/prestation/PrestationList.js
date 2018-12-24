@@ -46,38 +46,56 @@ class PrestationList extends React.Component {
                 <Grid id="prestationList" container justify='center' alignItems='flex-start'>
                     <Grid item xs={12} style={ style.prestationlistHeader }>
                         <Grid container justify='center' >
-                            <Typography variant='h2' style={ style.prestationlistTitle }>
+                            <Typography variant='h2' className={ classes.h2 } style={ style.prestationlistTitle }>
                                 CATALOGUE
                             </Typography>
                             <Grid container justify='center'>
-                                <Grid item xs={3} className={ classes.divider1 }>
+                                <Grid item xs={12} md={4} className={ classes.divider1 }>
                                 </Grid>
                             </Grid>
                         </Grid>
                     </Grid>
 
-                    <Grid item xs={6}>
+                    <Grid item xs={12} md={4}>
                         <Grid container justify='center'>
-                            <Typography variant='overline' style={{fontSize: 30}}>
+                            <Typography className={ classes.h3 } variant='overline' style={{fontSize: 30}}>
                                 FEMME
                             </Typography>
                         </Grid>
                         {this.props.prestations.map((prestation, index)=>
-                            <Grid item xs={12} key={index} style={style.prestationContainer}>
-                                <PrestationPreview prestation={prestation} />
-                            </Grid>
+                            prestation.category_name.toLowerCase() === 'femme' ?
+                                <Grid item xs={12} key={index} style={style.prestationContainer}>
+                                    <PrestationPreview prestation={prestation} />
+                                </Grid>
+                                : null
                         )}
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={12} md={4}>
                         <Grid container justify='center'>
-                            <Typography variant='overline' style={{fontSize: 30}}>
+                            <Typography className={ classes.h3 } variant='overline' style={{fontSize: 30}}>
                                 HOMME
                             </Typography>
                         </Grid>
                         {this.props.prestations.map((prestation, index)=>
-                            <Grid item xs={12} key={index} style={style.prestationContainer}>
+                            prestation.category_name.toLowerCase() === 'homme' ?
+                                <Grid item xs={12} key={index} style={style.prestationContainer}>
                                 <PrestationPreview prestation={prestation} />
                             </Grid>
+                                : null
+                        )}
+                    </Grid>
+                    <Grid item xs={12} md={4}>
+                        <Grid container justify='center'>
+                            <Typography className={ classes.h3 } variant='overline' style={{fontSize: 30}}>
+                                MIXTE
+                            </Typography>
+                        </Grid>
+                        {this.props.prestations.map((prestation, index)=>
+                            prestation.category_name.toLowerCase() === 'mixte' ?
+                                <Grid item xs={12} key={index} style={style.prestationContainer}>
+                                    <PrestationPreview prestation={prestation} />
+                                </Grid>
+                                : null
                         )}
                     </Grid>
                 </Grid>

@@ -21,16 +21,10 @@ class AdminDashboard extends React.Component {
 
     constructor (props) {
         super(props)
-        this.componentDidMount = this.componentDidMount.bind(this)
 
         this.state = {
             tableSelected: 'Member'
         }
-    }
-
-    componentDidMount () {
-        const { onLoadData, table } = this.props
-        onLoadData(table)
     }
 
     handleChangeSelect (table) {
@@ -62,6 +56,7 @@ class AdminDashboard extends React.Component {
                     element={this.props.element}
                     elementRules={this.props.elementRules}
                     index={-1}
+                    labels={this.props.labels}
                     submit={this.props.onCreateElement}
                     table={this.props.table}
                     icon='create'

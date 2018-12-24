@@ -26,6 +26,7 @@ export const style = {
     mainText: {
         color: 'white',
         letterSpacing: '10px',
+        marginBottom: '20px',
         zIndex: 1,
     },
     secondaryText: {

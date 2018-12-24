@@ -20,6 +20,8 @@ import FilterListIcon from '@material-ui/icons/FilterList';
 import { lighten } from '@material-ui/core/styles/colorManipulator';
 import DataDialog from './DataDialog'
 import Grid from "@material-ui/core/Grid/Grid";
+import _service from "../../../services";
+import Select from "../../ui/select/Select";
 
 function desc(a, b, orderBy) {
     if (b[orderBy] < a[orderBy]) {
@@ -51,7 +53,7 @@ class EnhancedTableHead extends React.Component {
     };
 
     render() {
-        const { onSelectAllClick, order, orderBy, numSelected, rowCount } = this.props;
+        const { onSelectAllClick, order, orderBy, numSelected, rowCount, table } = this.props;
 
         return (
             <TableHead>
@@ -68,12 +70,12 @@ class EnhancedTableHead extends React.Component {
                             return (
                                 <TableCell
                                     key={index}
-                                    numeric={false}
+                                    align={'left'}
                                     padding={'none'}
                                     sortDirection={orderBy === index ? order : false}
                                 >
                                     <Tooltip
-                                        title="Sort"
+                                        title="Trier"
                                         placement={'bottom-start'}
                                         enterDelay={300}
                                     >
@@ -92,7 +94,7 @@ class EnhancedTableHead extends React.Component {
                         }
                     }, this)}
                     <TableCell padding="checkbox">
-                        Update
+                        Modifier
                     </TableCell>
                 </TableRow>
             </TableHead>
@@ -199,6 +201,7 @@ class EnhancedTable extends React.Component {
 
     constructor (props) {
         super(props)
+        console.log(this.props.table)
         this.handleDeleteSelectedData = this.handleDeleteSelectedData.bind(this)
     }
 
@@ -266,6 +269,10 @@ class EnhancedTable extends React.Component {
         this.props.deleteSelectedData(this.props.table, this.state.selected)
     }
 
+    handleChangeSelect (table) {
+        console.log(table)
+    }
+
     render() {
         const { classes } = this.props;
 
@@ -273,7 +280,7 @@ class EnhancedTable extends React.Component {
 
         const { order, orderBy, selected, rowsPerPage, page } = this.state;
         const emptyRows = rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
-
+        console.log(this.props.labels)
         return (
             <Paper className={classes.root}>
                 <EnhancedTableToolbar numSelected={selected.length} onDeleteSelectedData={this.handleDeleteSelectedData} />
@@ -287,6 +294,7 @@ class EnhancedTable extends React.Component {
                             onSelectAllClick={this.handleSelectAllClick}
                             onRequestSort={this.handleRequestSort}
                             rowCount={data.length}
+                            table={this.props.table}
                         />
                         <TableBody>
                             {data.length === 0 ? (
@@ -313,13 +321,14 @@ class EnhancedTable extends React.Component {
                                                 <Checkbox checked={isSelected} />
                                             </TableCell>
                                             {this.props.elementRules.map((value, index) =>
-                                                <TableCell key={index + 1}>{Object.values(n)[index + 1]}</TableCell>
+                                                <TableCell key={index + 1} style={{ paddingLeft: 0 }}>{Object.values(n)[index + 1]}</TableCell>
                                             )}
-                                            <TableCell padding="checkbox">
+                                            <TableCell padding="checkbox" style={{ paddingLeft: 0 }}>
                                                 <DataDialog
                                                     title={'Update ' + this.props.table}
                                                     element={n}
                                                     elementRules={this.props.elementRules}
+                                                    labels={this.props.labels}
                                                     index={index}
                                                     submit={this.props.updateElement}
                                                     table={this.props.table}

@@ -31,12 +31,12 @@ class Footer extends React.Component {
             <div id="footer" style={ style.footerContainer }>
                 <Grid container justify='center'>
                     <Typography variant='overline' style={ style.footerText }>
-                        Copyright © 2018 AMARILDA COIFFURE.
+                        Copyright © 2018 {this.props.contact.contact_home_name}.
                     </Typography>
                 </Grid>
                 <Grid container justify='center'>
                     <Typography variant='overline' style={ style.footerText }>
-                        N° Siret : 829 766 690 00012
+                        N° Siret : {this.props.contact.contact_siret}
                     </Typography>
                 </Grid>
             </div>
@@ -49,6 +49,7 @@ Footer.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
+    contact: state.Contact.contact
 })
 
 const mapDispatchToProps = {

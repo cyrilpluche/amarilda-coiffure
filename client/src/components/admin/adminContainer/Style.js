@@ -3,6 +3,7 @@ const drawerWidth = 240;
 export const style = theme => ({
     root: {
         display: 'flex',
+        maxWidth: '100%',
     },
     drawer: {
         [theme.breakpoints.up('sm')]: {
@@ -29,5 +30,9 @@ export const style = theme => ({
     content: {
         flexGrow: 1,
         padding: theme.spacing.unit * 3,
+        maxWidth: '100%',
     },
+    navMarginTop: {
+        paddingTop: '64px',
+    }
 });

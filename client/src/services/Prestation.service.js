@@ -9,12 +9,16 @@ const Prestation = {
         prestation_description: '',
         prestation_price: '',
         prestation_reduction: '',
+        category_name: ''
     },
+    category_name: ['Femme', 'Homme', 'Mixte'],
+    labels: ['Titre', 'Description', 'Prix', 'Réduction', 'Catégorie'],
     rules:  [
         { label: 'prestation_title', type: 'text' },
         { label: 'prestation_description', type: 'text' },
         { label: 'prestation_price', type: 'number' },
-        { label: 'prestation_reduction', type: 'number' }
+        { label: 'prestation_reduction', type: 'number' },
+        { label: 'category_name', type: 'text'}
     ],
 
     create (prestation) {

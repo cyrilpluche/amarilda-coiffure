@@ -19,6 +19,10 @@ const prestationSchema = new Schema({
     prestation_reduction: {
         type: Number,
         min: [0, 'Reduction lower than 0']
+    },
+    category_name: {
+        type: String,
+        trim: true,
     }
 });
 

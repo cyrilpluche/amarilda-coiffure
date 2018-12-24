@@ -33,7 +33,7 @@ class Home extends React.Component {
 
     //href='#prestationList'
     render() {
-        const { classes } = this.props;
+        const { classes, contact } = this.props;
 
         return (
             <div id={'homeCover'} style={ style.main }>
@@ -42,19 +42,19 @@ class Home extends React.Component {
                 <Grid container justify='center' alignItems='center' style={ style.content }>
                     <Grid item xs={12}>
                         <Grid container justify='center' alignItems='center'>
-                            <Typography component="h2" variant="h2" style={ style.mainText }>
-                                {'Amarilda Coiffure'.toUpperCase()}
+                            <Typography component="h2" align='center' className={ classes.h2 } variant="h2" style={ style.mainText }>
+                                {contact.contact_home_name ? contact.contact_home_name.toUpperCase() : null}
                             </Typography>
                         </Grid>
                         <Grid container justify='center' alignItems='center'>
-                            <Typography  variant="overline" style={ style.secondaryText }>
-                                {'Coiffure à domicile sur Montélimar et ses alentours'.toUpperCase()}
-                            </Typography>
+                            <Typography  variant="overline" align='center' style={ style.secondaryText }>
+                                {contact.contact_home_description ? contact.contact_home_description.toUpperCase() : null}
+                                </Typography>
                         </Grid>
                     </Grid>
                     {/* CATALOGUE BUTTON */}
                     <Grid container justify='center' alignItems='center'>
-                        <Grid item xs={2}>
+                        <Grid item xs={8} sm={2}>
                             <Button
                                 onClick={() => this.smoothScroll('#prestationList')}
                                 variant='outlined'
@@ -71,7 +71,7 @@ class Home extends React.Component {
 
                     {/* CONTACT BUTTON */}
                     <Grid container justify='center' alignItems='center'>
-                        <Grid item xs={2}>
+                        <Grid item xs={8} sm={2}>
                             <Button
                                 onClick={() => this.smoothScroll('#contact')}
                                 variant='outlined'
@@ -96,6 +96,7 @@ Home.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
+    contact: state.Contact.contact
 })
 
 const mapDispatchToProps = {

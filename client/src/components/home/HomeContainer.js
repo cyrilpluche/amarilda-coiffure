@@ -21,8 +21,19 @@ import Footer from '../footer/Footer'
 import Grid from "@material-ui/core/Grid/Grid";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography/Typography";
+import _action from "../../actions";
 
 class HomeContainer extends React.Component {
+
+    constructor (props) {
+        super(props)
+        this.componentDidMount = this.componentDidMount.bind(this)
+    }
+
+    componentDidMount () {
+        const { onLoadContact } = this.props
+        onLoadContact()
+    }
 
     render() {
         const { classes } = this.props;
@@ -46,6 +57,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
+    onLoadContact: _action.contactAction.loadContact,
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(withStyles(globalStyle)(HomeContainer));

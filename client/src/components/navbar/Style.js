@@ -12,6 +12,7 @@ export const style = {
     },
     navbarIcon: {
         backgroundColor: globalColors.palette3,
-        color: '#FFF'
-    }
+        color: '#FFF',
+        opacity: 0.5,
+    },
 };

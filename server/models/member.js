@@ -12,12 +12,27 @@ const memberSchema = new Schema({
         trim: true,
         required: [true, 'Lastname is required']
     },
-    member_age: {
+    member_date_of_birth: {
         type: Number,
         trim: true,
-        min: [0, 'Age lower than 0'],
-        max: 100,
-        required: [true, 'Age is required']
+        min: [1900, 'Date of birth not valid'],
+        required: [true, 'Date of birth is required']
+    },
+    member_status: {
+        type: Number,
+        trim: true,
+        min: [0, 'Status lower than 0'],
+        required: [true, 'Status is required']
+    },
+    member_email: {
+        type: String,
+        trim: true,
+        required: [true, 'Email is required']
+    },
+    member_password: {
+        type: String,
+        trim: true,
+        required: [true, 'Password is required']
     }
 });
 

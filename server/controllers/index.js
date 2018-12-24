@@ -2,6 +2,7 @@ const Category = require('./category');
 const Member = require('./member');
 const Prestation = require('./prestation');
 const Schedule = require('./schedule');
+const Contact = require('./contact');
 
 const EndPoint = require('./endpoint');
 
@@ -10,5 +11,6 @@ module.exports = {
     Category,
     Member,
     Schedule,
-    Prestation
+    Prestation,
+    Contact
 };

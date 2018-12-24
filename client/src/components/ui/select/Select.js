@@ -31,7 +31,7 @@ class SimpleSelect extends React.Component {
     };
 
     render() {
-        const { classes } = this.props;
+        const { classes, tables } = this.props;
 
         return (
             <form className={classes.root} autoComplete="off">
@@ -45,7 +45,7 @@ class SimpleSelect extends React.Component {
                             id: this.props.title,
                         }}
                     >
-                        {this.props.tables.map((table, index) =>
+                        {tables.map((table, index) =>
                             <MenuItem key={index} value={table}>{table}</MenuItem>
                         )}
                     </Select>

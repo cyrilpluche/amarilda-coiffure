@@ -28,12 +28,11 @@ class Contact extends React.Component {
         const { classes } = this.props;
 
         const informations = [
-            {label: 'Tel', logo: (<PhoneIcon style={{ marginRight: '10px' }}/>),  value: '+33 6 83 07 22 44'},
-            {label: 'Email', logo: (<EmailIcon style={{ marginRight: '10px' }}/>),  value: 'amarilda.coiffure@gmail.com'},
-            {label: 'Horaires', logo: (<ScheduleIcon style={{ marginRight: '10px' }}/>),  value: '9h - 12h / 14h - 17h'}
+            {label: 'Tel', logo: (<PhoneIcon style={{ marginRight: '10px' }}/>),  value: this.props.contact.contact_phone},
+            {label: 'Email', logo: (<EmailIcon style={{ marginRight: '10px' }}/>),  value: this.props.contact.contact_email},
+            {label: 'Horaires', logo: (<ScheduleIcon style={{ marginRight: '10px' }}/>),  value: this.props.contact.contact_schedule}
 
         ]
-
 
         return (
             <div id="contact" style={ style.contactContainer }>
@@ -43,20 +42,20 @@ class Contact extends React.Component {
                             CONTACT
                         </Typography>
                     </Grid>
-                    <Grid item xs={6}>
+                    <Grid item xs={12} md={4}>
                         <Grid container>
                             <img style={ style.img1 } src={img1} alt='photo de coiffure'/>
                         </Grid>
                     </Grid>
-                    <Grid item xs={6}>
-                        <Grid container alignItems='center' style={{ height: '100%', paddingRight: '5%' }}>
+                    <Grid item xs={12} md={6} style={{ paddingRight: '5%', paddingLeft: '5%'  }}>
+                        <Grid container alignItems='center' style={{ height: '100%'}}>
                             <Typography variant="overline" component="h2" style={ style.prestationPreviewText }>
-                                Vous pouvez me contacter pour prendre rendez-vous, ainsi que pour tout renseignement supplémentaire
+                                {this.props.contact.contact_description}
                             </Typography>
                             <Grid item xs={12}>
                                 {informations.map((information, index) =>
                                     <Grid container justify='space-between' alignItems='center' key={index}>
-                                        <Grid item xs={6}>
+                                        <Grid item xs={12} md={6}>
                                             <Grid container alignItems='center'>
                                                 { information.logo }
                                                 <Typography variant="overline" component="h2" style={ style.prestationPreviewText }>
@@ -87,6 +86,7 @@ Contact.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
+    contact: state.Contact.contact
 })
 
 const mapDispatchToProps = {
