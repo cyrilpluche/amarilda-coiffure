@@ -31,7 +31,6 @@ class Contact extends React.Component {
             {label: 'Tel', logo: (<PhoneIcon style={{ marginRight: '10px' }}/>),  value: this.props.contact.contact_phone},
             {label: 'Email', logo: (<EmailIcon style={{ marginRight: '10px' }}/>),  value: this.props.contact.contact_email},
             {label: 'Horaires', logo: (<ScheduleIcon style={{ marginRight: '10px' }}/>),  value: this.props.contact.contact_schedule}
-
         ]
 
         return (

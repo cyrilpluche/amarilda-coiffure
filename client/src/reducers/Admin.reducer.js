@@ -163,6 +163,7 @@ export function Admin (state = initialState, {type, payload}) {
             };
 
         case labels.IS_LOGGED_FALSE:
+            /** WARNING : Switch is_logged to true if there's no admin yet */
             return {
                 ...state,
                 isLoading: state.isLoading - 1,

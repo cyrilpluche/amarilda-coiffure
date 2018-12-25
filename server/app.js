@@ -25,8 +25,17 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors())
 
-app.use('/', routers);
-app.use('/', controllers.EndPoint.send);
+app.use('/api', routers);
+app.use('/api', controllers.EndPoint.send);
+
+// Use React App
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.resolve(__dirname, '../client/build')));
+    app.get('*', function(request, response) {
+        response.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+    });
+}
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

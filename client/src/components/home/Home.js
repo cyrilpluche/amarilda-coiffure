@@ -40,18 +40,21 @@ class Home extends React.Component {
                 <div style={ style.colorOverlay }/>
                 <Navbar/>
                 <Grid container justify='center' alignItems='center' style={ style.content }>
-                    <Grid item xs={12}>
-                        <Grid container justify='center' alignItems='center'>
-                            <Typography component="h2" align='center' className={ classes.h2 } variant="h2" style={ style.mainText }>
-                                {contact.contact_home_name ? contact.contact_home_name.toUpperCase() : null}
-                            </Typography>
-                        </Grid>
-                        <Grid container justify='center' alignItems='center'>
-                            <Typography  variant="overline" align='center' style={ style.secondaryText }>
-                                {contact.contact_home_description ? contact.contact_home_description.toUpperCase() : null}
+                    {contact ? (
+                        <Grid item xs={12}>
+                            <Grid container justify='center' alignItems='center'>
+                                <Typography component="h2" align='center' className={ classes.h2 } variant="h2" style={ style.mainText }>
+                                    {contact.contact_home_name ? contact.contact_home_name.toUpperCase() : null}
                                 </Typography>
+                            </Grid>
+                            <Grid container justify='center' alignItems='center'>
+                                <Typography  variant="overline" align='center' style={ style.secondaryText }>
+                                    {contact.contact_home_description ? contact.contact_home_description.toUpperCase() : null}
+                                </Typography>
+                            </Grid>
                         </Grid>
-                    </Grid>
+                    ) : null }
+
                     {/* CATALOGUE BUTTON */}
                     <Grid container justify='center' alignItems='center'>
                         <Grid item xs={8} sm={2}>

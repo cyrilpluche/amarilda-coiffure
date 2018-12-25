@@ -1,0 +1,21 @@
+{
+  "name": "amarilda-coiffure",
+  "version": "1.0.0",
+  "description": "template-react-node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./server/bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cyrilpluche/amarilda-coiffure.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cyrilpluche/amarilda-coiffure/issues"
+  },
+  "homepage": "https://github.com/cyrilpluche/amarilda-coiffure#readme"
+}

@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:4200/';
+const BASE_URL = 'http://localhost:4200/api/';
+//const BASE_URL = 'http://amarildacoiffure.herokuapp.com:4200/api/';
 
 const apiMethods = {
     BASE_URL,

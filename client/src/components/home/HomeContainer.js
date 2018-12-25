@@ -39,12 +39,16 @@ class HomeContainer extends React.Component {
         const { classes } = this.props;
 
         return (
-            <div style={ style.homeContainer } id={'homeContainer'}>
-                <Home/>
-                <PrestationList/>
-                <Contact/>
-                <Footer/>
-            </div>
+            this.props.contact ? (
+
+                <div style={ style.homeContainer } id={'homeContainer'}>
+                    <Home/>
+                    <PrestationList/>
+                    <Contact/>
+                    <Footer/>
+                </div>
+            ) : null
+
         )
     }
 }
@@ -54,6 +58,7 @@ HomeContainer.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
+    contact: state.Contact.contact
 })
 
 const mapDispatchToProps = {
