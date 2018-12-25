@@ -1,13 +1,13 @@
 {
   "main.css": "/static/css/main.8a601b92.chunk.css",
-  "main.js": "/static/js/main.293fc568.chunk.js",
-  "main.js.map": "/static/js/main.293fc568.chunk.js.map",
+  "main.js": "/static/js/main.30703f54.chunk.js",
+  "main.js.map": "/static/js/main.30703f54.chunk.js.map",
   "static/css/1.f5ca3399.chunk.css": "/static/css/1.f5ca3399.chunk.css",
   "static/js/1.3cb79510.chunk.js": "/static/js/1.3cb79510.chunk.js",
   "static/js/1.3cb79510.chunk.js.map": "/static/js/1.3cb79510.chunk.js.map",
   "runtime~main.js": "/static/js/runtime~main.229c360f.js",
   "runtime~main.js.map": "/static/js/runtime~main.229c360f.js.map",
-  "static/media/index.css": "/static/media/roboto-latin-700.cf6613d1.woff",
+  "static/media/index.css": "/static/media/roboto-latin-400italic.d8bcbe72.woff2",
   "static/media/contact-img1.jpg": "/static/media/contact-img1.60d0ed7c.jpg",
   "static/media/home_bg.jpg": "/static/media/home_bg.250f734f.jpg",
   "static/media/ic_back.svg": "/static/media/ic_back.c04e4bed.svg",
@@ -15,6 +15,6 @@
   "static/css/main.8a601b92.chunk.css.map": "/static/css/main.8a601b92.chunk.css.map",
   "static/css/1.f5ca3399.chunk.css.map": "/static/css/1.f5ca3399.chunk.css.map",
   "index.html": "/index.html",
-  "precache-manifest.2ea07f61f85dacfcdf00856b8edc2b3f.js": "/precache-manifest.2ea07f61f85dacfcdf00856b8edc2b3f.js",
+  "precache-manifest.09cceb19d77e0301d1003ee1a860f20f.js": "/precache-manifest.09cceb19d77e0301d1003ee1a860f20f.js",
   "service-worker.js": "/service-worker.js"
 }
