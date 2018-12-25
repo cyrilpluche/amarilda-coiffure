@@ -11,6 +11,9 @@
     "type": "git",
     "url": "git+https://github.com/cyrilpluche/amarilda-coiffure.git"
   },
+  "dependencies": {
+    "dotenv": "^6.1.0"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
